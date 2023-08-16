@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 //------------------------------Colors ------------------------------------//
 Color primaryColor = Color(0xFF2A28B5);
+Color SecondaryColor = Color.fromARGB(255, 49, 47, 139);
 Color backgroundColor = Color.fromARGB(500, 241, 244, 250);
 Color primaryText = Colors.black;
 Color secondaryText = Color(0xFF938C8B);
@@ -32,6 +33,14 @@ TextStyle Title3 = TextStyle(
   fontFamily: 'Nunito',
   fontWeight: FontWeight.w900,
 );
+
+TextStyle Title4 = TextStyle(
+  color: Color(0xFFFFF9F8),
+  fontSize: 28,
+  fontFamily: 'Nunito',
+  fontWeight: FontWeight.w800,
+);
+
 TextStyle TabBarTitle = TextStyle(
   color: Colors.black,
   fontSize: 13,
@@ -39,9 +48,16 @@ TextStyle TabBarTitle = TextStyle(
   fontWeight: FontWeight.w900,
 );
 
+TextStyle TabBarTitle2 = TextStyle(
+  color: Colors.black,
+  fontSize: 10,
+  fontFamily: 'Nunito',
+  fontWeight: FontWeight.w900,
+);
+
 TextStyle SubTitle1 = TextStyle(
   color: Color(0xFF938C8B),
-  fontSize: 13,
+  fontSize: 12,
   fontFamily: 'Nunito',
   fontWeight: FontWeight.w900,
 );
@@ -55,16 +71,23 @@ TextStyle SubTitle2 = TextStyle(
 
 TextStyle Subtitle3 = TextStyle(
   color: Color(0xFF938C8B),
-  fontSize: 20,
+  fontSize: 18,
   fontFamily: 'Nunito',
   fontWeight: FontWeight.w900,
 );
 
-TextStyle ButtonText = TextStyle(
-  color: Colors.white,
-  fontSize: 18,
+TextStyle Subtitle4 = TextStyle(
+  color: Color(0xFFFFF9F8),
+  fontSize: 11,
   fontFamily: 'Nunito',
   fontWeight: FontWeight.w800,
+);
+
+TextStyle ButtonText = TextStyle(
+  color: Colors.white,
+  fontSize: 16,
+  fontFamily: 'Nunito',
+  fontWeight: FontWeight.w400,
 );
 
 TextStyle ContentTitle = TextStyle(

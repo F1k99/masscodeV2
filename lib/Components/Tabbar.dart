@@ -14,10 +14,10 @@ class TabbarComponents extends StatefulWidget {
 class _TabbarComponentsState extends State<TabbarComponents> {
   User user = User(
     id: '1',
-    name: 'Muhammad Salman',
+    name: 'Amirul Fikri',
     AnnualLeaveBalance: 10,
-    SickLeaveBalance: 18,
-    HospitalisationBalance: 5,
+    SickLeaveBalance: 15,
+    HospitalisationBalance: 55,
     AnnualLeaveTotal: 15,
     SickLeaveTotal: 20,
     HospitalisationTotal: 60,
@@ -29,6 +29,15 @@ class _TabbarComponentsState extends State<TabbarComponents> {
       initialIndex: 0,
       child: Column(
         children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.fromLTRB(40, 10, 0, 0),
+                child: Text("Welcome ${user.name} !", style: Title1),
+              )
+            ],
+          ),
           Align(
             alignment: Alignment(0, 0),
             child: TabBar(
@@ -56,6 +65,9 @@ class _TabbarComponentsState extends State<TabbarComponents> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  SizedBox(
+                    height: 20,
+                  ),
                   Expanded(
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
@@ -66,23 +78,23 @@ class _TabbarComponentsState extends State<TabbarComponents> {
                           child: Stack(
                             children: <Widget>[
                               Container(
-                                width: 200,
-                                height: 200,
+                                width: 180,
+                                height: 180,
                                 child: CircularProgressIndicator(
-                                  strokeWidth: 20,
+                                  strokeWidth: 19,
                                   value: ((user.AnnualLeaveTotal -
                                           user.AnnualLeaveBalance) /
                                       user.AnnualLeaveTotal),
-                                  backgroundColor: Colors.white,
+                                  backgroundColor: Color(0x2B49C946),
                                   valueColor: AlwaysStoppedAnimation<Color>(
-                                      Colors.green),
+                                      Color(0xFF31B62F)),
                                 ),
                               ),
                               Positioned(
                                 bottom: 0,
                                 left: 0,
                                 right: 0,
-                                top: 67,
+                                top: 55,
                                 child: Column(
                                   children: [
                                     Text(
@@ -111,7 +123,7 @@ class _TabbarComponentsState extends State<TabbarComponents> {
                       ),
                       Container(
                         width: 150,
-                        height: 60,
+                        height: 50,
                         child: Column(
                           children: [
                             Row(
@@ -130,7 +142,7 @@ class _TabbarComponentsState extends State<TabbarComponents> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 SizedBox(
-                                  width: 20,
+                                  width: 17,
                                 ),
                                 Text(
                                   "${user.AnnualLeaveTotal}",
@@ -146,7 +158,7 @@ class _TabbarComponentsState extends State<TabbarComponents> {
                       ),
                       Container(
                         width: 150,
-                        height: 60,
+                        height: 50,
                         child: Column(
                           children: [
                             Row(
@@ -176,29 +188,7 @@ class _TabbarComponentsState extends State<TabbarComponents> {
                           ],
                         ),
                       )
-                      // RoundContainer(),
-                      // SizedBox(
-                      //   width: 10,
-                      // ),
-                      // Text(
-                      //   "Total Leave Accured",
-                      //   style: SubTitle1,
-                      // )
                     ],
-
-                    // mainAxisAlignment: MainAxisAlignment.center,
-                    // //Change when setup backend
-                    // children: [
-                    //   Text(
-                    //     'Balance : ${user.AnnualLeaveBalance}/${user.AnnualLeaveTotal}',
-                    //     style: TextStyle(
-                    //       fontSize: 18,
-                    //       fontFamily: 'Readex Pro',
-                    //       color: Colors.black,
-                    //       fontWeight: FontWeight.bold,
-                    //     ),
-                    //   )
-                    // ],
                   )
                 ],
               ),
@@ -208,6 +198,9 @@ class _TabbarComponentsState extends State<TabbarComponents> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  SizedBox(
+                    height: 20,
+                  ),
                   Expanded(
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
@@ -218,43 +211,33 @@ class _TabbarComponentsState extends State<TabbarComponents> {
                           child: Stack(
                             children: <Widget>[
                               Container(
-                                width: 200,
-                                height: 200,
+                                width: 180,
+                                height: 180,
                                 child: CircularProgressIndicator(
-                                  strokeWidth: 20,
+                                  strokeWidth: 19,
                                   value: ((user.SickLeaveTotal -
                                           user.SickLeaveBalance) /
                                       user.SickLeaveTotal),
-                                  backgroundColor: Colors.white,
-                                  valueColor:
-                                      AlwaysStoppedAnimation<Color>(Colors.red),
+                                  backgroundColor: Color(0x26B62F2F),
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                      Color(0xFFB62F2F)),
                                 ),
                               ),
                               Positioned(
                                 bottom: 0,
                                 left: 0,
                                 right: 0,
-                                top: 80,
+                                top: 55,
                                 child: Column(
                                   children: [
                                     Text(
-                                      "Sick Leave",
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        fontFamily: 'Outfit',
-                                        color: Color.fromARGB(200, 20, 24, 27),
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                                      "${user.SickLeaveBalance}",
+                                      style: Title3,
                                     ),
                                     Text(
-                                      '${user.SickLeaveBalance} Days ',
+                                      'Sick Leave \nBalance',
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        fontFamily: 'Outfit',
-                                        color: Color.fromARGB(200, 20, 24, 27),
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                                      style: SubTitle2,
                                     ),
                                   ],
                                 ),
@@ -266,17 +249,76 @@ class _TabbarComponentsState extends State<TabbarComponents> {
                     ),
                   ),
                   Row(
-                    mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    //Change when setup backend
                     children: [
-                      Text(
-                        'Balance : ${user.SickLeaveBalance}/${user.SickLeaveTotal}',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontFamily: 'Readex Pro',
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
+                      SizedBox(
+                        width: 50,
+                      ),
+                      Container(
+                        width: 150,
+                        height: 50,
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                RoundContainer(),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  "Total Leave Accured",
+                                  style: SubTitle1,
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  width: 17,
+                                ),
+                                Text(
+                                  "${user.SickLeaveTotal}",
+                                  style: Subtitle3,
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: 100,
+                      ),
+                      Container(
+                        width: 150,
+                        height: 50,
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                RoundContainer(),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  "Leave Used",
+                                  style: SubTitle1,
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Text(
+                                  "${user.SickLeaveTotal - user.SickLeaveBalance}",
+                                  style: Subtitle3,
+                                ),
+                              ],
+                            )
+                          ],
                         ),
                       )
                     ],
@@ -288,6 +330,9 @@ class _TabbarComponentsState extends State<TabbarComponents> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  SizedBox(
+                    height: 20,
+                  ),
                   Expanded(
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
@@ -298,43 +343,33 @@ class _TabbarComponentsState extends State<TabbarComponents> {
                           child: Stack(
                             children: <Widget>[
                               Container(
-                                width: 200,
-                                height: 200,
+                                width: 180,
+                                height: 180,
                                 child: CircularProgressIndicator(
-                                  strokeWidth: 20,
+                                  strokeWidth: 19,
                                   value: ((user.HospitalisationTotal -
                                           user.HospitalisationBalance) /
                                       user.HospitalisationTotal),
-                                  backgroundColor: Colors.white,
+                                  backgroundColor: Color(0x44F8E21A),
                                   valueColor: AlwaysStoppedAnimation<Color>(
-                                      Colors.yellow),
+                                      Color(0xFFF8E21A)),
                                 ),
                               ),
                               Positioned(
                                 bottom: 0,
                                 left: 0,
                                 right: 0,
-                                top: 80,
+                                top: 55,
                                 child: Column(
                                   children: [
                                     Text(
-                                      "Hospitalisation",
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        fontFamily: 'Outfit',
-                                        color: Color.fromARGB(200, 20, 24, 27),
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                                      "${user.HospitalisationBalance}",
+                                      style: Title3,
                                     ),
                                     Text(
-                                      '${user.HospitalisationBalance} Days ',
+                                      'Hospitalisation \nBalance',
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        fontFamily: 'Outfit',
-                                        color: Color.fromARGB(200, 20, 24, 27),
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                                      style: SubTitle2,
                                     ),
                                   ],
                                 ),
@@ -346,16 +381,76 @@ class _TabbarComponentsState extends State<TabbarComponents> {
                     ),
                   ),
                   Row(
-                    mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        'Balance : ${user.HospitalisationBalance}/${user.HospitalisationTotal}',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontFamily: 'Readex Pro',
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
+                      SizedBox(
+                        width: 50,
+                      ),
+                      Container(
+                        width: 150,
+                        height: 50,
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                RoundContainer(),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  "Total Leave Accured",
+                                  style: SubTitle1,
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  width: 17,
+                                ),
+                                Text(
+                                  "${user.HospitalisationTotal}",
+                                  style: Subtitle3,
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: 100,
+                      ),
+                      Container(
+                        width: 150,
+                        height: 50,
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                RoundContainer(),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  "Leave Used",
+                                  style: SubTitle1,
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Text(
+                                  "${user.HospitalisationTotal - user.HospitalisationBalance}",
+                                  style: Subtitle3,
+                                ),
+                              ],
+                            )
+                          ],
                         ),
                       )
                     ],

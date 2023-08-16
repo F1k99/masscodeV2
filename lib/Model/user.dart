@@ -17,5 +17,7 @@ class User {
     required this.SickLeaveTotal,
     required this.HospitalisationBalance,
     required this.HospitalisationTotal,
+
+
   });
 }
